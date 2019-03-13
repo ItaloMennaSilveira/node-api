@@ -5,7 +5,7 @@ const Product  = mongoose.model('Product');
 module.exports = {
   async index(req, resp) {
     const { page = 1 } = req.query; // com default quando a rota nao encontra o parametro
-    const products = await Product.paginate({}, { limit: 10 }); //troca pelo paginate
+    const products = await Product.paginate({}, { page , limit: 5 }); //troca pelo paginate
 
     return resp.json(products);
   },
